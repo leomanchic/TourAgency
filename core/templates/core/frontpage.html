@@ -1,11 +1,12 @@
 {% extends 'core/base.html' %}
+{% block title %}Welcome{% endblock %}
 {% block content %}
-    <header class="bg-cover bg-center h-96" style="background-image: url('your-background-image.jpg');">
+    <header class="bg-cover bg-center h-96" style="background-image: url('media/uploads/IMG_20230727_210023_453.jpg');">
         <div class="bg-black bg-opacity-60 h-full flex items-center justify-center">
             <div class="text-center text-white">
-                <h1 class="text-4xl font-extrabold leading-tight mb-4">Explore the World with Us</h1>
+                <h1 class="text-4xl font-extrabold leading-tight mb-4">Самые горячие тутутуры , только у нас!!!</h1>
                 <p class="text-xl mb-6">Discover amazing destinations and unforgettable experiences.</p>
-                <a href="#"
+                <a href="{% url 'shop' %}"
                    class="bg-blue-600 text-white py-2 px-6 rounded-full text-lg hover:bg-blue-700 transition duration-300 ease-in-out">Book
                     Now</a>
             </div>
@@ -16,17 +17,9 @@
             <h2 class="text-3xl font-semibold text-gray-800 mb-6">Featured Tours</h2>
             <div class="grid grid-cols-3 gap-6">
                 <!-- Featured Tour Card (Repeat for each featured tour) -->
-                <div class="bg-white rounded shadow-md overflow-hidden">
-                    <img src="tour-image-1.jpg" alt="Tour Image" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Tour Name</h3>
-                        <p class="text-gray-600">Explore a wonderful destination.</p>
-                        <p class="text-2xl text-blue-600 mt-3">$999</p>
-                    </div>
-                    <div class="bg-gray-100 py-2 text-center">
-                        <a href="#" class="text-blue-600 hover:underline">Learn More</a>
-                    </div>
-                </div>
+                {% for product in products %}
+                    {% include 'products/partials/product_list_item.html' %}
+                {% endfor %}
                 <!-- End of Featured Tour Card -->
 
 

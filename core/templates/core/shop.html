@@ -1,0 +1,46 @@
+{% extends 'core/base.html' %}
+{% block content %}
+    <div class="max-w-6xl mx-auto flex flex-wrap items-start py-6 px-6 xl:px-0">
+        <div class="filters w-full lg:w-1/4">
+            <h3 class="mb-3 text-xl text-center  uppercase">
+                Search
+                <form method="get" action=".">
+                    <div class="flex">
+                        <input type="text" name="query" class="p-4 bg-gray-100 border-0" placeholder="Search...">
+                        <button class="ml-1 p-4 bg-gray-100 border-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                 class="w-6 h-6">
+                                <path d="M8.25 10.875a2.625 2.625 0 115.25 0 2.625 2.625 0 01-5.25 0z"/>
+                                <path fill-rule="evenodd"
+                                      d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.125 4.5a4.125 4.125 0 102.338 7.524l2.007 2.006a.75.75 0 101.06-1.06l-2.006-2.007a4.125 4.125 0 00-3.399-6.463z"
+                                      clip-rule="evenodd"/>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </h3>
+
+            <ul class="space-y-2">
+                {% for category in categories %}
+                    <li><a href="{% url 'shop' %}?category={{ category.slug }}" class="{% if category.slug == active_category %}text-orange-500{% else %}text-gray-500{% endif %}">{{ category.slug }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <section class="py-12">
+
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-semibold text-gray-800 mb-6">Featured Tours</h2>
+            <div class="grid grid-cols-3 gap-6">
+                <!-- Featured Tour Card (Repeat for each featured tour) -->
+                {% for product in products %}
+                  {% include 'products/partials/product_list_item.html' %}
+                {% endfor %}
+                <!-- End of Featured Tour Card -->
+
+
+                <!-- Repeat the above card structure for other featured tours -->
+            </div>
+        </div>
+    </section>
+{% endblock %}
