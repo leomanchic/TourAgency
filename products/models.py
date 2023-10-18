@@ -54,6 +54,9 @@ class Product(models.Model):
     def get_city(self):
         return self.category.city
 
+    def get_description(self):
+        return self.description[0:50]
+
     def get_thumbnail(self):
         if self.thumbnail:
             return self.thumbnail.url

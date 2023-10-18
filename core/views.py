@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 # Create your views here.
 from products.models import Product, Category, City
@@ -27,8 +28,9 @@ def signup(request):
     return render(request, 'core/signup.html', {'form': form})
 
 
-def login_old(request):
-    return render(request, 'core/login.html', )
+@login_required
+def my_account(request):
+    return render(request, 'core/myaccount.html', )
 
 
 def shop(request):
@@ -41,12 +43,19 @@ def shop(request):
 
     query = request.GET.get('query', '')
     if query:
-        products = products.filter(Q(name__icontains=query) | Q(description__icontains=query))
 
-    print(categories[0].city)
+        products = products.filter(Q(name__icontains=query) | Q(description__icontains=query) )
+        categories = categories.filter(Q(city__name__icontains=query))
+        # print(categories[0].city,categories)
+
+
+
+
+    # print(categories[0].city)#
     context = {
         'categories': categories,
         'products': products,
         'active_category': active_category,
+        # 'cities': categories[0].city,
     }
     return render(request, "core/shop.html", context)

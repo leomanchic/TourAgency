@@ -35,8 +35,7 @@
                 hx-get="{% url 'hx_cart_total' %}"
                 hx-trigger="update-menu-cart from:body"
                 hx-swap="innerHTML"
-            >
-                {% include 'cart/partials/cart_total.html' %}
+            >{% include 'cart/partials/cart_total.html' %}
             </span>
         </div>
 
