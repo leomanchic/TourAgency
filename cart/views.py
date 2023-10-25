@@ -39,7 +39,7 @@ def update_cart(request, product_id, action):
                 'get_thumbnail': product.get_thumbnail(),
                 'price': product.price,
             },
-            'total_price': (quantity * product.price) / 100,
+            'total_price': (quantity * product.price),
             'quantity': quantity,
         }
     else:

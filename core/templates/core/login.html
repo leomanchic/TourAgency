@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-{#    {% block title %}Войти{% endblock %}#}
+    <title>Вход</title>
+    {#    {% block title %}Войти{% endblock %}#}
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://unpkg.com/htmx.org@1.7.0/dist/htmx.js"></script>
 
@@ -40,9 +41,10 @@
                 </div>
             {% endfor %}
         {% endif %}
-        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+        <button type="submit" class="mx-8 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
             Войти
         </button>
+        <a href="{% url 'signup' %}" class="mt-0">Зарегистрироваться</a>
     </form>
 </div>
 </body>

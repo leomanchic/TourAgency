@@ -28,7 +28,8 @@ ALLOWED_HOSTS = []
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/login/'
-
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE =True
 SESSION_COOKIE_AGE = 86400
 CART_SESSION_ID = 'cart'
 
@@ -43,7 +44,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'core',
     'products',
-    'cart'
+    'cart',
+    'order'
 ]
 
 MIDDLEWARE = [
