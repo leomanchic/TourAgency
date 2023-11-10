@@ -1,6 +1,11 @@
-from django.shortcuts import render
+import json
+
+import requests
+from django.conf import settings
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
+from order.models import Order
 from products.models import Product
 # Create your views here.
 from .cart import Cart
@@ -59,6 +64,31 @@ def checkout(request):
 @login_required
 def payout(request):
     return render(request, 'cart/partials/payout.html')
+
+
+def success_pay(request):
+    url = 'https://api.oxapay.com/merchants/inquiry'
+    track_id = request.GET.get('trackId', None)
+    order = Order.objects.get(lid=track_id)
+
+    data = {
+        'merchant': settings.OXA_PAY_KEY,
+        'trackId': track_id
+    }
+    response = requests.post(url, data=json.dumps(data))
+    result = response.json()
+    # print(result)
+
+    # проверка статуса оплаты
+    if result['status'] == 'Paid':
+        order.paid = True
+        order.paid_amount = order.amount_to_pay
+        order.save()
+    else:
+        return redirect(settings.LINK_ERROR_PAY)
+
+    return render(request, 'cart/success.html')
+
 
 def hx_menu_cart(request):
     return render(request, 'cart/partials/menu_cart.html')

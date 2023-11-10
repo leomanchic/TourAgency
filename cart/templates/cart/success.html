@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment successful</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Navigation Bar (you can reuse your navigation bar shere) -->
+    <!-- ... -->
+
+    <!-- Payment Error Section -->
+    <section class="py-12">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="bg-white rounded shadow-md p-6">
+                <h2 class="text-3xl font-semibold text-gray-800 mb-6">Оплата прошла успешно </h2>
+                <p class="text-gray-600 mb-4">{{ request.user }}</p>
+                <p class="text-gray-600">Удачи </p>
+                <div class="mt-8">
+                    <a href="{% url 'frontpage' %}" class="bg-blue-600 text-white py-3 px-8 rounded-full text-lg hover:bg-blue-700 transition duration-300 ease-in-out">Домой</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (you can reuse your footer here) -->
+    <!-- ... -->
+</body>
+</html>

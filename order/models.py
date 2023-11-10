@@ -14,10 +14,13 @@ class Order(models.Model):
     phone = models.CharField(max_length=125)
     created_at = models.DateTimeField(auto_now_add=True)
 
-    paid = models.BooleanField(default=False,null=True)
+    paid = models.BooleanField(default=False, null=True)
     paid_amount = models.IntegerField(blank=True, null=True)
+    amount_to_pay = models.IntegerField(blank=True, null=True)
+    lid = models.PositiveBigIntegerField(blank=False,null=True)
 
 
+#
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE)
     product = models.ForeignKey(Product, related_name='items', on_delete=models.CASCADE)
