@@ -33,8 +33,8 @@ CSRF_COOKIE_SECURE =True
 SESSION_COOKIE_AGE = 86400
 CART_SESSION_ID = 'cart'
 
-
-OXA_PAY_KEY = 'WAFHVV-78Z4FV-MDHGEV-GTXCZ8'
+### We ne
+OXA_PAY_KEY = ''
 CURRENCY = 'TON'
 # Application definition
 LINK_ERROR_PAY = 'https://youtu.be/dQw4w9WgXcQ?si=1BxszwMZcrG9rS_1'

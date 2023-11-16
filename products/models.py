@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 from django.db import models
-from PIL import Image
+from PIL import Image7
 from io import BytesIO
 from django.core.files import File
 
