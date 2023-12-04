@@ -23,6 +23,7 @@ def start_order(request):
         email = request.POST.get('email')
         phone = request.POST.get('phone')
         date_of_birth = request.POST.get('date_of_birth')
+        room_type = request.POST.get('room_type')
         total_price = 0
 
         items = []
@@ -53,7 +54,7 @@ def start_order(request):
 
         # Нужно проверить прошла ли оплата
         order = Order.objects.create(user=request.user, first_name=first_name, last_name=last_name, email=email,
-                                     phone=phone, date_of_birth=date_of_birth, amount_to_pay=total_price)
+                                     phone=phone, date_of_birth=date_of_birth, amount_to_pay=total_price, room_type=room_type)
         print(order)
         print(request.user)
 

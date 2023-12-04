@@ -34,7 +34,7 @@ SESSION_COOKIE_AGE = 86400
 CART_SESSION_ID = 'cart'
 
 ### We ne
-OXA_PAY_KEY = ''
+OXA_PAY_KEY = 'GPK52U-D75Y95-E6ZC3F-EW13DW'
 CURRENCY = 'TON'
 # Application definition
 LINK_ERROR_PAY = 'https://youtu.be/dQw4w9WgXcQ?si=1BxszwMZcrG9rS_1'

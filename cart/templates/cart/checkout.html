@@ -54,8 +54,15 @@
                             <input name="email" type="email" class="w-full p-5 rounded-xl"
                                    value="{{ request.user.email }}">
                         </div>
-
-                        <div class="mb-4">
+                              <div class="mb-4">
+                                 <label for="room-type" class="block text-sm font-medium text-gray-600">Тип номера:</label>
+                                    <select name="room_type" class="mt-1 p-2 w-full">
+                                        <option value="single">Одноместный</option>
+                                        <option value="double">Двухместный</option>
+                                        <option value="suite">Люкс</option>
+                                    </select>
+                              </div>
+                            <div class="mb-4">
                             <label class="inline-block mb-2">Phone</label>
                             <input name="phone" type="phone" class="w-full p-5 rounded-xl">
                         </div>

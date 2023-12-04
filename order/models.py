@@ -18,6 +18,7 @@ class Order(models.Model):
     paid_amount = models.IntegerField(blank=True, null=True)
     amount_to_pay = models.IntegerField(blank=True, null=True)
     lid = models.PositiveBigIntegerField(blank=False,null=True)
+    room_type = models.CharField(max_length=125,blank=False,null=True)
 
 
 #

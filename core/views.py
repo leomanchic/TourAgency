@@ -49,8 +49,6 @@ def shop(request):
         # print(categories[0].city,categories)
 
 
-
-
     # print(categories[0].city)#
     context = {
         'categories': categories,

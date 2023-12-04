@@ -10,14 +10,14 @@
             <p class="text-gray-600">{{ product.description }}</p>
             <p class="text-2xl text-blue-600 mt-3">TON {{ product.get_display_price }}</p>
             <p class="text-1xl text-blue-600 mt-3">{{ product.get_city }}</p>
-            <div class="mb-4">
-            <label for="room-type" class="block text-sm font-medium text-gray-600">Тип номера:</label>
-                <select id="room-type" name="room-type" class="mt-1 p-2 w-full">
-                    <option value="single">Одноместный</option>
-                    <option value="double">Двухместный</option>
-                    <option value="suite">Люкс</option>
-                </select>
-            </div>
+{#            <div class="mb-4">#}
+{#            <label for="room-type" class="block text-sm font-medium text-gray-600">Тип номера:</label>#}
+{#                <select id="room-type" name="room-type" class="mt-1 p-2 w-full">#}
+{#                    <option value="single">Одноместный</option>#}
+{#                    <option value="double">Двухместный</option>#}
+{#                    <option value="suite">Люкс</option>#}
+{#                </select>#}
+{#            </div>#}
 
             <a href="#" hx-get="{% url 'add_to_cart' product.id %}"
                hx-target="#menu-cart-button"
