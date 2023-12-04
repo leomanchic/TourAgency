@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 from django.db import models
-from PIL import Image7
+from PIL import Image
 from io import BytesIO
 from django.core.files import File
 
@@ -31,6 +31,11 @@ class Category(models.Model):
 
 # класс для конкретных продуктов(отель, номре итд)
 class Product(models.Model):
+    SHIRT_SIZES = [
+        ("Lux", "Люкс"),
+        ("Medium", "Медиум"),
+        ("Simple", "Обчный"),
+    ]
     category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     slug = models.SlugField()
@@ -38,6 +43,7 @@ class Product(models.Model):
     price = models.PositiveIntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(upload_to='uploads/', blank=True, null=True)
+    type = models.CharField(max_length=8, choices=SHIRT_SIZES, blank=True, null=True)
     thumbnail = models.ImageField(upload_to='uploads/', blank=True, null=True)
 
     # picture = models.ImageField(null=True)
