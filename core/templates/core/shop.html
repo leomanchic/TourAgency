@@ -21,8 +21,8 @@
             </h3>
 
             <ul class="space-y-2">
-                {% for category in categories %}
-                    <li><a href="{% url 'shop' %}?category={{ category.slug }}" class="{% if category.slug == active_category %}text-orange-500{% else %}text-gray-500{% endif %}">{{ category.slug }}</a></li>
+                {% for city in cities %}
+                    <li><a href="{% url 'shop' %}?category={{ city.name }}" class="{% if city == active_category %}text-orange-500{% else %}text-gray-500{% endif %}">{{ city.name }}</a></li>
                 {% endfor %}
             </ul>
         </div>
